@@ -1,0 +1,64 @@
+footer{
+    margin-top: 25vmax;
+    padding: 2vmax;
+    background-color: rgb(34,33,33);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.leftfooter{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leftfooter > h4{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.leftfooter > p{
+    text-align: center;
+    font-size: 1vmax;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.leftfooter > img{
+    width: 10vmax;
+    margin: 1vmax;
+    cursor: pointer;
+}
+
+.midfooter{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.midfooter > p{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.rightfooter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rightfooter > h4{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.rightfooter > a{
+    padding: 1vmax;
+    color: white;
+}
+
+.rightfooter > a:hover{
+    color: coral;
+}
