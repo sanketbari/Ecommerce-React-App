@@ -11,12 +11,34 @@ import {
 } from "../constants/productConstants";
 
 //keyword=""
-export const getProduct = (keyword="") => async (dispatch) => {
+export const getProduct = () => async (dispatch) => { //keyword=""
   try {
     dispatch({ type: ALL_PRODUCT_REQUEST });
-    const link = `/api/v1/products?category=${keyword}`;
-
+    //let link = `/api/v1/products/${keyword}`; //${keyword}?keyword=product
+    console.log("IngetProduct = ");
     const { data } = await axios.get("/api/v1/products");//"/api/v1/products"
+
+    dispatch({
+      type: ALL_PRODUCT_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ALL_PRODUCT_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+
+export const getSearchedProduct = (keyword="") => async (dispatch) => { //keyword=""
+  try {
+    dispatch({ type: ALL_PRODUCT_REQUEST });
+    //${keyword}?keyword=product
+
+    const { data } = await axios.get(`/api/v1/products?keyword=${keyword}`);//"/api/v1/products"
+    console.log("keyword = ",keyword);
+    console.log("searched data::",data);
 
     dispatch({
       type: ALL_PRODUCT_SUCCESS,

@@ -27,7 +27,7 @@ class ApiFeatures{
 
         //Removing some fields for category
 
-        const removeFields = ["keywords","page","limit"];
+        const removeFields = ["keyword","page","limit"];
 
         removeFields.forEach(key => delete copyqueryStr[key]);
 

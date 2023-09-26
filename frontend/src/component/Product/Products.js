@@ -1,21 +1,31 @@
 import React, { Fragment, useEffect } from "react";
 import "./Products.css";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, getProduct } from "../../actions/productAction";
+import { clearErrors, getProduct, getProductDetails } from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
 import ProductCard from "../Home/ProductCard";
 import { useParams } from "react-router-dom";
+import { getSearchedProduct } from "../../actions/productAction";
 
 const Products = () => {
   const dispatch = useDispatch();
 
-  const { keyword } = useParams();
-
+  
+  //console.log("keyword = ",keyword);
   const { products, loading, error, productsCount } = useSelector(
     (state) => state.products
   );
+
+  const { keyword } = useParams();
   useEffect(() => {
-    dispatch(getProduct(keyword));
+
+    console.log("Keyword in Products component::",keyword);
+    if(keyword){
+      dispatch(getSearchedProduct(keyword));
+    }
+    else{
+      dispatch(getProduct());
+    }
   }, [dispatch,keyword]);
 
   return (
